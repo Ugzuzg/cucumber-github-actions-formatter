@@ -1,0 +1,52 @@
+{
+  "name": "@ugzuzg/cucumber-github-actions-formatter",
+  "version": "1.0.0",
+  "description": "Cucumber.js Formatter for GitHub Actions",
+  "repository": "https://github.com/Ugzuzg/cucumber-github-actions-formatter",
+  "maintainers": [
+    "Jaraslau Viktorchyk <ugzuzg@gmail.com>"
+  ],
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "LICENSE",
+    "dist",
+    "src"
+  ],
+  "directories": {
+    "dist": "dist",
+    "src": "src"
+  },
+  "scripts": {
+    "build:clean": "rm -rf dist",
+    "prebuild": "npm run build:clean",
+    "build": "tsc -p tsconfig.node.json",
+    "lint": "eslint .",
+    "test": "ava"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@cucumber/cucumber": ">=7.0.0",
+    "@cucumber/messages": "*"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.4.0",
+    "@cucumber/messages": "^19.1.2",
+    "@tsconfig/node16": "^1.0.3",
+    "@types/glob": "^7.2.0",
+    "@types/node": "^14.18.22",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "ava": "^4.3.1",
+    "colors": "^1.4.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.26.0",
+    "glob": "^7.2.3",
+    "prettier": "^2.7.1",
+    "stream-to-string": "^1.2.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  }
+}
