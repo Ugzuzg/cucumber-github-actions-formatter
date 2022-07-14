@@ -18,6 +18,14 @@ $ cucumber-js -f @ugzuzg/cucumber-github-actions-formatter
 
 Or use [Profiles](https://github.com/cucumber/cucumber-js/blob/main/docs/profiles.md)
 
+The formatter produces very little output, though. You will most likely want to use another formatter together with this one.
+There is a limitation in `cucumber-js` that only one formatter can output to stdout.
+Use the following trick to work around that limitation by directing this formatter to a file descriptor of stdout:
+
+```
+$ cucumber-js -f @cucumber/pretty-formatter -f @ugzuzg/cucumber-github-actions-formatter:/proc/self/fd/1
+```
+
 
 ## Example
 
