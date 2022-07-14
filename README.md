@@ -17,3 +17,8 @@ $ cucumber-js -f @ugzuzg/cucumber-github-actions-formatter
 ```
 
 Or use [Profiles](https://github.com/cucumber/cucumber-js/blob/main/docs/profiles.md)
+
+
+## Example
+
+![image](https://user-images.githubusercontent.com/1078004/179058332-f8fc7a8f-9ef7-4e6f-bd2f-6fdf3b136359.png)
