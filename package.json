@@ -34,7 +34,7 @@
     "@cucumber/messages": "^22.0.0",
     "@tsconfig/node16": "^1.0.3",
     "@types/glob": "^8.0.0",
-    "@types/node": "^18.0.4",
+    "@types/node": "^20.1.0",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
     "ava": "^5.0.1",
