@@ -35,7 +35,7 @@
     "@tsconfig/node20": "^20.1.2",
     "@types/glob": "^8.0.0",
     "@types/node": "^20.1.0",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^6.19.1",
     "ava": "^6.1.0",
     "colors": "^1.4.0",
