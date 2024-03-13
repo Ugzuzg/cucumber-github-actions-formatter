@@ -15,7 +15,12 @@ test.serial('warns about ambiguous steps', async (t) => {
 
 test.serial('warns about failed steps', async (t) => {
   const result = await run('step.feature', { name: ['Failed step'] })
-  t.snapshot(result.replace(join(__dirname, '../'), ''))
+  t.snapshot(result.replaceAll(join(__dirname, '../'), ''))
+})
+
+test.serial('warns about failed steps with retries', async (t) => {
+  const result = await run('step.feature', { name: ['Failed step'], retry: 1 })
+  t.snapshot(result.replaceAll(join(__dirname, '../'), ''))
 })
 
 test.serial('logs passed steps', async (t) => {

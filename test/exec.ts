@@ -25,7 +25,6 @@ export const run = async (
     ...cucumberOptions,
     format: [join(__dirname, '..', 'src')],
     paths: [join(__dirname, 'features', fileName)],
-    publishQuiet: true,
     require: [join(__dirname, 'features/**/*.ts')],
   }
   const { runConfiguration } = await loadConfiguration({

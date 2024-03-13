@@ -22,6 +22,8 @@ const types = {
 }
 
 export default class GitHubActionsFormatter extends Formatter {
+  private stepResults: Record<string, messages.TestStepFinished[]> = {}
+
   constructor(options: IFormatterOptions) {
     super(options)
     this.parseEnvelope = this.parseEnvelope.bind(this)
@@ -30,20 +32,44 @@ export default class GitHubActionsFormatter extends Formatter {
   }
 
   private parseEnvelope(envelope: messages.Envelope) {
-    if (envelope.testStepFinished)
-      this.onTestStepFinished(envelope.testStepFinished)
+    if (envelope.testStepFinished) {
+      this.stepResults[envelope.testStepFinished.testCaseStartedId] = [
+        ...(this.stepResults[envelope.testStepFinished.testCaseStartedId] ??
+          []),
+        envelope.testStepFinished,
+      ]
+    }
+    if (envelope.testCaseFinished) {
+      this.onTestCaseFinished(envelope.testCaseFinished)
+    }
   }
 
-  private onTestStepFinished(testStepFinished: messages.TestStepFinished) {
+  private onTestCaseFinished(testCaseFinished: messages.TestCaseFinished) {
+    this.stepResults[testCaseFinished.testCaseStartedId]?.forEach(
+      (testStepFinished) =>
+        this.onTestStepFinished(
+          testStepFinished,
+          testCaseFinished.willBeRetried,
+        ),
+    )
+    delete this.stepResults[testCaseFinished.testCaseStartedId]
+  }
+
+  private onTestStepFinished(
+    testStepFinished: messages.TestStepFinished,
+    willBeRetried: boolean,
+  ) {
     const { message, status } = testStepFinished.testStepResult || {}
-    if (types[status]) {
-      const {
-        gherkinDocument,
-        pickle,
-        testCase,
-      } = this.eventDataCollector.getTestCaseAttempt(
-        testStepFinished.testCaseStartedId || '',
-      )
+    const logLevel = (() => {
+      if (types[status] === 'error' && willBeRetried) return 'warning'
+      return types[status]
+    })()
+
+    if (logLevel) {
+      const { gherkinDocument, pickle, testCase } =
+        this.eventDataCollector.getTestCaseAttempt(
+          testStepFinished.testCaseStartedId || '',
+        )
 
       const location = (() => {
         const pickleStepMap = getPickleStepMap(pickle)
@@ -67,9 +93,9 @@ export default class GitHubActionsFormatter extends Formatter {
         return message || 'Unknown error'
       })()
 
-      const me = `${n}::${types[status]} file=${escapeProperty(
+      const me = `${n}::${logLevel} file=${escapeProperty(
         gherkinDocument.uri,
-      )},line=${location.line},col=${location.column}::${escapeData(m)}`
+      )},line=${location.line},col=${location.column}::${escapeData(m)}${n}`
       this.log(me)
     }
   }
