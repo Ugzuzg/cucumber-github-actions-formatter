@@ -6,8 +6,7 @@ import {
 import { join } from 'path'
 import { PassThrough } from 'stream'
 import streamToString from 'stream-to-string'
-import glob from 'glob'
-import { promisify } from 'util'
+import { glob } from 'glob'
 
 export const run = async (
   fileName: string,
@@ -15,7 +14,7 @@ export const run = async (
   throws = false,
 ): Promise<string> => {
   // clear require cache for support code
-  const matches = await promisify(glob)('features/support/*', {
+  const matches = await glob('features/support/*', {
     absolute: true,
     cwd: __dirname,
   })
