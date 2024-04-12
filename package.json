@@ -30,7 +30,7 @@
     "@cucumber/messages": "*"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^9.0.0",
+    "@cucumber/cucumber": "^10.4.0",
     "@cucumber/messages": "^24.0.0",
     "@tsconfig/node20": "^20.1.2",
     "@types/glob": "^8.0.0",
