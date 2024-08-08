@@ -1,0 +1,7 @@
+exports[`logs empty run summaries 1`] = `
+""
+`;
+
+exports[`logs summaries after a new line 1`] = `
+""
+`;

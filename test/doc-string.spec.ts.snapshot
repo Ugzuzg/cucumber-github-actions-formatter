@@ -1,0 +1,7 @@
+exports[`logs doc strings 1`] = `
+""
+`;
+
+exports[`preserves doc string indentation 1`] = `
+""
+`;

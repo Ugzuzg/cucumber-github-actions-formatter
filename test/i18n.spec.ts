@@ -1,15 +1,15 @@
-import test from 'ava'
+import { test } from 'node:test'
 
 import { run } from './exec'
 
-test.serial('logs French', async (t) => {
+test('logs French', async (t) => {
   const result = await run('fr.feature', {
     name: ['Nom du Scénario'],
   })
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })
 
-test.serial('logs Russian', async (t) => {
+test('logs Russian', async (t) => {
   const result = await run('ru.feature', { name: ['Сценарий name'] })
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })

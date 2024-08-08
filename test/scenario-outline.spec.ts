@@ -1,10 +1,10 @@
-import test from 'ava'
+import { test } from 'node:test'
 
 import { run } from './exec'
 
-test.serial('logs scenario outlines', async (t) => {
+test('logs scenario outlines', async (t) => {
   const result = await run('scenario-outline.feature', {
     name: ['Scenario outline'],
   })
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })

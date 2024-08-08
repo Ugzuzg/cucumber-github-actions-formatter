@@ -1,0 +1,31 @@
+exports[`logs passed steps 1`] = `
+""
+`;
+
+exports[`logs pending steps 1`] = `
+""
+`;
+
+exports[`logs skipped steps 1`] = `
+""
+`;
+
+exports[`logs steps 1`] = `
+""
+`;
+
+exports[`logs undefined steps 1`] = `
+"\\n::warning file=test/features/step.feature,line=30,col=5::Undefined step definition\\n"
+`;
+
+exports[`warns about ambiguous steps 1`] = `
+"\\n::warning file=test/features/step.feature,line=15,col=5::Multiple step definitions match:%0A  ambiguous - test/features/support/steps.ts:9 %0A  ambiguous - test/features/support/steps.ts:10\\n"
+`;
+
+exports[`warns about failed steps 1`] = `
+"\\n::error file=test/features/step.feature,line=18,col=5::Error: FAILED%0A    at World.<anonymous> (test/features/support/steps.ts:12:11)\\n"
+`;
+
+exports[`warns about failed steps with retries 1`] = `
+"\\n::warning file=test/features/step.feature,line=18,col=5::Error: FAILED%0A    at World.<anonymous> (test/features/support/steps.ts:12:11)\\n\\n::error file=test/features/step.feature,line=18,col=5::Error: FAILED%0A    at World.<anonymous> (test/features/support/steps.ts:12:11)\\n"
+`;

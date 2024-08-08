@@ -1,8 +1,8 @@
-import test from 'ava'
+import { test } from 'node:test'
 
 import { run } from './exec'
 
-test.serial('does not log hooks', async (t) => {
+test('does not log hooks', async (t) => {
   const result = await run('hook.feature')
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })

@@ -23,7 +23,7 @@
     "prebuild": "npm run build:clean",
     "build": "tsc -p tsconfig.node.json",
     "lint": "eslint .",
-    "test": "ava"
+    "test": "node --require @swc-node/register --experimental-test-snapshots --test 'test/*.spec.ts'"
   },
   "peerDependencies": {
     "@cucumber/cucumber": ">=7.0.0",
@@ -33,10 +33,10 @@
     "@cucumber/cucumber": "^9.0.0",
     "@cucumber/messages": "^25.0.1",
     "@eslint/js": "^9.8.0",
+    "@swc-node/register": "^1.10.9",
     "@tsconfig/node20": "^20.1.2",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.0.0",
-    "ava": "^6.1.0",
     "colors": "^1.4.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.0.0",

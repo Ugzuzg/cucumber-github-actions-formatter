@@ -1,18 +1,18 @@
-import test from 'ava'
+import { test } from 'node:test'
 
 import { run } from './exec'
 
-test.serial('logs rules', async (t) => {
+test('logs rules', async (t) => {
   const result = await run('rule.feature')
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })
 
-test.serial('logs background steps in rules', async (t) => {
+test('logs background steps in rules', async (t) => {
   const result = await run('rule-background.feature')
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })
 
-test.serial('offsets the scenario indentation', async (t) => {
+test('offsets the scenario indentation', async (t) => {
   const result = await run('rule*.feature')
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })

@@ -1,11 +1,8 @@
-import test from 'ava'
+import { test } from 'node:test'
 
 import { run } from './exec'
 
-test.serial(
-  'logs feature names and inserts new lines between scenarios and features',
-  async (t) => {
-    const result = await run('*.feature', { name: ['Feature \\d'] })
-    t.snapshot(result)
-  },
-)
+test('logs feature names and inserts new lines between scenarios and features', async (t) => {
+  const result = await run('*.feature', { name: ['Feature \\d'] })
+  t.assert.snapshot(result)
+})

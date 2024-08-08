@@ -1,8 +1,8 @@
-import test from 'ava'
+import { test } from 'node:test'
 
 import { run } from './exec'
 
-test.serial('logs data tables', async (t) => {
+test('logs data tables', async (t) => {
   const result = await run('data-table.feature')
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })

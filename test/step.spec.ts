@@ -1,44 +1,44 @@
-import test from 'ava'
+import { test } from 'node:test'
 import { join } from 'path'
 
 import { run } from './exec'
 
-test.serial('logs steps', async (t) => {
+test('logs steps', async (t) => {
   const result = await run('step.feature', { name: ['Step name'] })
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })
 
-test.serial('warns about ambiguous steps', async (t) => {
+test('warns about ambiguous steps', async (t) => {
   const result = await run('step.feature', { name: ['Ambiguous step'] })
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })
 
-test.serial('warns about failed steps', async (t) => {
+test('warns about failed steps', async (t) => {
   const result = await run('step.feature', { name: ['Failed step'] })
-  t.snapshot(result.replaceAll(join(__dirname, '../'), ''))
+  t.assert.snapshot(result.replaceAll(join(__dirname, '../'), ''))
 })
 
-test.serial('warns about failed steps with retries', async (t) => {
+test('warns about failed steps with retries', async (t) => {
   const result = await run('step.feature', { name: ['Failed step'], retry: 1 })
-  t.snapshot(result.replaceAll(join(__dirname, '../'), ''))
+  t.assert.snapshot(result.replaceAll(join(__dirname, '../'), ''))
 })
 
-test.serial('logs passed steps', async (t) => {
+test('logs passed steps', async (t) => {
   const result = await run('step.feature', { name: ['Passed step'] })
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })
 
-test.serial('logs pending steps', async (t) => {
+test('logs pending steps', async (t) => {
   const result = await run('step.feature', { name: ['Pending step'] })
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })
 
-test.serial('logs skipped steps', async (t) => {
+test('logs skipped steps', async (t) => {
   const result = await run('step.feature', { name: ['Skipped step'] })
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })
 
-test.serial('logs undefined steps', async (t) => {
+test('logs undefined steps', async (t) => {
   const result = await run('step.feature', { name: ['Undefined step'] })
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })

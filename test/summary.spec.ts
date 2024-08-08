@@ -1,13 +1,13 @@
-import test from 'ava'
+import { test } from 'node:test'
 
 import { run } from './exec'
 
-test.serial('logs empty run summaries', async (t) => {
+test('logs empty run summaries', async (t) => {
   const result = await run('feature.feature', { tags: '@empty' })
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })
 
-test.serial('logs summaries after a new line', async (t) => {
+test('logs summaries after a new line', async (t) => {
   const result = await run('feature.feature', { name: ['Feature name'] })
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })

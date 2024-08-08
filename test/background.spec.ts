@@ -1,8 +1,8 @@
-import test from 'ava'
+import { test } from 'node:test'
 
 import { run } from './exec'
 
-test.serial('does not log backgrounds', async (t) => {
+test('does not log backgrounds', async (t) => {
   const result = await run('background.feature')
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })

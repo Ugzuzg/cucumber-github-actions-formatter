@@ -1,0 +1,7 @@
+exports[`does not log scenario descriptions 1`] = `
+""
+`;
+
+exports[`logs feature descriptions 1`] = `
+""
+`;

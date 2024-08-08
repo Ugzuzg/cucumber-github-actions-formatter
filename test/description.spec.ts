@@ -1,13 +1,13 @@
-import test from 'ava'
+import { test } from 'node:test'
 
 import { run } from './exec'
 
-test.serial('logs feature descriptions', async (t) => {
+test('logs feature descriptions', async (t) => {
   const result = await run('description.feature')
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })
 
-test.serial('does not log scenario descriptions', async (t) => {
+test('does not log scenario descriptions', async (t) => {
   const result = await run('description.feature')
-  t.snapshot(result)
+  t.assert.snapshot(result)
 })
