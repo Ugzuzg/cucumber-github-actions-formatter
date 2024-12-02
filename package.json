@@ -30,7 +30,7 @@
     "@cucumber/messages": "*"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^9.0.0",
+    "@cucumber/cucumber": "^11.1.0",
     "@cucumber/messages": "^27.0.0",
     "@eslint/js": "^9.8.0",
     "@swc-node/register": "^1.10.9",
