@@ -33,7 +33,7 @@
     "@cucumber/cucumber": "^9.0.0",
     "@cucumber/messages": "^33.0.4",
     "@eslint/js": "^10.0.1",
-    "@swc-node/register": "^1.11.1",
+    "@swc-node/register": "^1.12.1",
     "@tsconfig/node20": "^20.1.9",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^26.1.1",
